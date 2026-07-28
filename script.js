@@ -1,25 +1,29 @@
 let carrito = [];
 
-let total = 0;
-
 
 function agregarProducto(nombre, precio){
 
-
-carrito.push({
-
-nombre:nombre,
-
-precio:precio
-
-});
+    let productoEncontrado = carrito.find(producto => producto.nombre === nombre);
 
 
-total += precio;
+    if(productoEncontrado){
+
+        productoEncontrado.cantidad++;
+
+    } else {
+
+        carrito.push({
+
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1
+
+        });
+
+    }
 
 
-mostrarCarrito();
-
+    mostrarCarrito();
 
 }
 
@@ -27,58 +31,112 @@ mostrarCarrito();
 
 function mostrarCarrito(){
 
+    let lista = document.getElementById("listaCarrito");
 
-let lista = document.getElementById("listaCarrito");
-
-
-lista.innerHTML="";
+    let totalTexto = document.getElementById("total");
 
 
-carrito.forEach((producto,index)=>{
+    lista.innerHTML = "";
 
 
-lista.innerHTML += `
-
-<p>
-
-${producto.nombre} - $${producto.precio}
-
-<button onclick="eliminarProducto(${index})">
-
-❌
-
-</button>
-
-</p>
-
-`;
-
-});
+    let total = 0;
 
 
-document.getElementById("total").innerHTML = total;
+    if(carrito.length === 0){
+
+        lista.innerHTML = "No hay productos todavía 🛒";
+
+    }
 
 
 
-let mensaje = "Hola, quiero comprar:%0A";
+    carrito.forEach((producto,index)=>{
 
 
-carrito.forEach(producto=>{
-
-mensaje += producto.nombre + " $" + producto.precio + "%0A";
-
-});
-
-
-mensaje += "Total: $" + total;
+        total += producto.precio * producto.cantidad;
 
 
 
-document.getElementById("whatsapp").href =
+        lista.innerHTML += `
 
-"https://wa.me/18096028222?text=" + mensaje;
+        <div class="item-carrito">
+
+        <p>
+        <strong>${producto.nombre}</strong>
+        <br>
+        $${producto.precio} x ${producto.cantidad}
+        </p>
 
 
+        <button onclick="cambiarCantidad(${index},1)">
+        +
+        </button>
+
+
+        <button onclick="cambiarCantidad(${index},-1)">
+        -
+        </button>
+
+
+        <button onclick="eliminarProducto(${index})">
+        ❌
+        </button>
+
+
+        </div>
+
+        `;
+
+
+    });
+
+
+
+    totalTexto.innerHTML = total;
+
+
+
+    let mensaje = "Hola, quiero hacer este pedido:%0A%0A";
+
+
+    carrito.forEach(producto=>{
+
+        mensaje += producto.nombre + 
+        " x" + producto.cantidad +
+        " = $" + 
+        (producto.precio * producto.cantidad) +
+        "%0A";
+
+    });
+
+
+
+    mensaje += "%0ATotal: $" + total;
+
+
+
+    document.getElementById("whatsapp").href =
+
+    "https://wa.me/18096028222?text=" + mensaje;
+
+
+}
+
+
+
+function cambiarCantidad(index, cambio){
+
+    carrito[index].cantidad += cambio;
+
+
+    if(carrito[index].cantidad <= 0){
+
+        carrito.splice(index,1);
+
+    }
+
+
+    mostrarCarrito();
 
 }
 
@@ -86,14 +144,8 @@ document.getElementById("whatsapp").href =
 
 function eliminarProducto(index){
 
+    carrito.splice(index,1);
 
-total -= carrito[index].precio;
-
-
-carrito.splice(index,1);
-
-
-mostrarCarrito();
-
+    mostrarCarrito();
 
 }
