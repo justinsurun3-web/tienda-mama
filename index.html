@@ -16,7 +16,7 @@
 
 <h1>🛍️ Tienda de Mamá</h1>
 
-<p>Productos de calidad al mejor precio</p>
+<p>Calidad, confianza y buenos precios</p>
 
 <nav>
 <a href="#">Inicio</a>
@@ -28,70 +28,102 @@
 </header>
 
 
-<div class="buscador">
-<input type="text" placeholder="🔎 Buscar productos...">
-</div>
+<section class="hero">
 
+<h2>Bienvenidos a nuestra tienda</h2>
 
-<div class="categorias">
+<p>Encuentra los mejores productos al mejor precio.</p>
 
-<button>Todos</button>
-<button>Ropa</button>
-<button>Accesorios</button>
-<button>Ofertas</button>
+</section>
 
-</div>
 
 
 <h2 id="productos">Nuestros Productos</h2>
 
 
+
+<div class="productos">
+
+
 <div class="producto">
+
+<span class="oferta">OFERTA</span>
+
+<img src="Imagen-tienda.png">
 
 <h3>Producto 1</h3>
 
-<img src="Imagen-tienda.png">
+<p>⭐⭐⭐⭐⭐</p>
 
-<p>Producto de excelente calidad.</p>
+<p>Producto de alta calidad.</p>
 
-<p class="precio">$10</p>
+<h2>$10</h2>
+
 
 <button onclick="agregarProducto('Producto 1',10)">
-Agregar al carrito 🛒
+Agregar 🛒
 </button>
 
 </div>
+
 
 
 
 <div class="producto">
 
-<h3>Producto 2</h3>
-
 <img src="Imagen-tienda.png">
 
-<p>Producto recomendado.</p>
+<h3>Producto 2</h3>
 
-<p class="precio">$15</p>
+<p>⭐⭐⭐⭐⭐</p>
+
+<p>Producto recomendado por clientes.</p>
+
+<h2>$15</h2>
+
 
 <button onclick="agregarProducto('Producto 2',15)">
-Agregar al carrito 🛒
+Agregar 🛒
 </button>
 
 </div>
+
+
+
+
+<div class="producto">
+
+<img src="Imagen-tienda.png">
+
+<h3>Producto 3</h3>
+
+<p>⭐⭐⭐⭐</p>
+
+<p>Nueva colección disponible.</p>
+
+<h2>$20</h2>
+
+
+<button onclick="agregarProducto('Producto 3',20)">
+Agregar 🛒
+</button>
+
+</div>
+
+
+
+</div>
+
 
 
 
 <section id="carrito">
 
-<h2>🛒 Tu carrito</h2>
+<h2>🛒 Carrito</h2>
 
 <div id="listaCarrito">
-
-<p>No hay productos todavía</p>
-
+No hay productos
 </div>
-
 
 <h3>Total: $<span id="total">0</span></h3>
 
@@ -99,7 +131,7 @@ Agregar al carrito 🛒
 <a id="whatsapp" target="_blank">
 
 <button>
-Finalizar compra por WhatsApp
+Comprar por WhatsApp
 </button>
 
 </a>
@@ -109,20 +141,17 @@ Finalizar compra por WhatsApp
 
 
 
-<footer>
 
-<h3>Tienda de Mamá</h3>
+<footer>
 
 <p>📱 WhatsApp: +1 (809) 602-8222</p>
 
-<p>© 2026 Todos los derechos reservados</p>
+<p>© 2026 Tienda de Mamá</p>
 
 </footer>
 
 
-
 <script src="script.js"></script>
-
 
 </body>
 </html>
