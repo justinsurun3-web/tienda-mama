@@ -1,31 +1,55 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: #f4f4f4;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 header {
-    background: #111;
+    background: #0d6efd;
     color: white;
-    padding: 20px;
+    text-align: center;
+    padding: 25px;
 }
 
-h1 {
-    margin: 0;
+h2 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.producto {
+    background: white;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 10px;
 }
 
 button {
-    background: #007bff;
+    background: #25D366;
     color: white;
     border: none;
     padding: 12px 20px;
     border-radius: 8px;
-    font-size: 16px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #1faa59;
+}
+
+footer {
+    text-align: center;
+    background: #222;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
 }
