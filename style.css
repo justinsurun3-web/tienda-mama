@@ -13,7 +13,7 @@ body{
 /* HEADER */
 
 header{
-    background:linear-gradient(135deg,#111,#333);
+    background:linear-gradient(135deg,#111,#444);
     color:white;
     text-align:center;
     padding:35px 20px;
@@ -22,13 +22,14 @@ header{
 
 header h1{
     font-size:42px;
-    margin:0 0 10px;
+    margin:0;
 }
 
 
 header p{
     font-size:18px;
 }
+
 
 
 nav{
@@ -54,15 +55,16 @@ nav a:hover{
 /* HERO */
 
 .hero{
+    background:white;
     text-align:center;
     padding:50px 20px;
-    background:white;
 }
 
 
 .hero h2{
     font-size:35px;
 }
+
 
 
 
@@ -75,18 +77,12 @@ nav a:hover{
 
 
 .buscador input{
-
     width:80%;
     max-width:500px;
-
     padding:16px;
-
     border-radius:30px;
-
-    border:1px solid #ddd;
-
+    border:1px solid #ccc;
     font-size:16px;
-
 }
 
 
@@ -94,28 +90,19 @@ nav a:hover{
 /* CATEGORIAS */
 
 .categorias{
-
     text-align:center;
-
-    margin:30px;
-
+    margin:25px;
 }
 
 
 .categorias button{
 
     background:#111;
-
     color:white;
-
     border:none;
-
     padding:12px 22px;
-
     margin:5px;
-
     border-radius:25px;
-
     cursor:pointer;
 
 }
@@ -125,24 +112,18 @@ nav a:hover{
 /* PRODUCTOS */
 
 #productos{
-
     text-align:center;
-
     font-size:35px;
-
 }
+
 
 
 .productos{
 
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:25px;
-
     padding:20px;
 
 }
@@ -152,13 +133,9 @@ nav a:hover{
 .producto{
 
     background:white;
-
     width:300px;
-
     padding:20px;
-
     border-radius:20px;
-
     text-align:center;
 
     box-shadow:0 8px 25px rgba(0,0,0,.12);
@@ -175,7 +152,7 @@ nav a:hover{
 
     transform:translateY(-10px);
 
-    box-shadow:0 15px 30px rgba(0,0,0,.2);
+    box-shadow:0 15px 30px rgba(0,0,0,.20);
 
 }
 
@@ -184,11 +161,8 @@ nav a:hover{
 .producto img{
 
     width:100%;
-
     height:250px;
-
     object-fit:cover;
-
     border-radius:15px;
 
 }
@@ -224,13 +198,10 @@ nav a:hover{
 .oferta{
 
     position:absolute;
-
     top:15px;
-
     left:15px;
 
     background:red;
-
     color:white;
 
     padding:8px 12px;
@@ -266,6 +237,7 @@ button{
 }
 
 
+
 button:hover{
 
     background:#128C7E;
@@ -282,9 +254,9 @@ button:hover{
 
     background:white;
 
-    margin:40px auto;
+    max-width:650px;
 
-    max-width:600px;
+    margin:40px auto;
 
     padding:30px;
 
@@ -301,6 +273,32 @@ button:hover{
 #listaCarrito{
 
     font-size:18px;
+
+}
+
+
+
+.item-carrito{
+
+    background:#f5f5f5;
+
+    margin:15px 0;
+
+    padding:15px;
+
+    border-radius:15px;
+
+}
+
+
+
+.item-carrito button{
+
+    padding:8px 15px;
+
+    margin:5px;
+
+    font-size:14px;
 
 }
 
@@ -356,156 +354,5 @@ footer{
         font-size:28px;
 
     }
-
-}
-let carrito = [];
-
-
-function agregarProducto(nombre, precio){
-
-    let productoEncontrado = carrito.find(producto => producto.nombre === nombre);
-
-
-    if(productoEncontrado){
-
-        productoEncontrado.cantidad++;
-
-    } else {
-
-        carrito.push({
-
-            nombre: nombre,
-            precio: precio,
-            cantidad: 1
-
-        });
-
-    }
-
-
-    mostrarCarrito();
-
-}
-
-
-
-function mostrarCarrito(){
-
-    let lista = document.getElementById("listaCarrito");
-
-    let totalTexto = document.getElementById("total");
-
-
-    lista.innerHTML = "";
-
-
-    let total = 0;
-
-
-    if(carrito.length === 0){
-
-        lista.innerHTML = "No hay productos todavía 🛒";
-
-    }
-
-
-
-    carrito.forEach((producto,index)=>{
-
-
-        total += producto.precio * producto.cantidad;
-
-
-
-        lista.innerHTML += `
-
-        <div class="item-carrito">
-
-        <p>
-        <strong>${producto.nombre}</strong>
-        <br>
-        $${producto.precio} x ${producto.cantidad}
-        </p>
-
-
-        <button onclick="cambiarCantidad(${index},1)">
-        +
-        </button>
-
-
-        <button onclick="cambiarCantidad(${index},-1)">
-        -
-        </button>
-
-
-        <button onclick="eliminarProducto(${index})">
-        ❌
-        </button>
-
-
-        </div>
-
-        `;
-
-
-    });
-
-
-
-    totalTexto.innerHTML = total;
-
-
-
-    let mensaje = "Hola, quiero hacer este pedido:%0A%0A";
-
-
-    carrito.forEach(producto=>{
-
-        mensaje += producto.nombre + 
-        " x" + producto.cantidad +
-        " = $" + 
-        (producto.precio * producto.cantidad) +
-        "%0A";
-
-    });
-
-
-
-    mensaje += "%0ATotal: $" + total;
-
-
-
-    document.getElementById("whatsapp").href =
-
-    "https://wa.me/18096028222?text=" + mensaje;
-
-
-}
-
-
-
-function cambiarCantidad(index, cambio){
-
-    carrito[index].cantidad += cambio;
-
-
-    if(carrito[index].cantidad <= 0){
-
-        carrito.splice(index,1);
-
-    }
-
-
-    mostrarCarrito();
-
-}
-
-
-
-function eliminarProducto(index){
-
-    carrito.splice(index,1);
-
-    mostrarCarrito();
 
 }
