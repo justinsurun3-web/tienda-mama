@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Mamá</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tienda de Mamá</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header>
-    <h1>🛍️ Tienda de Mamá</h1>
-    <p>Productos de calidad al mejor precio</p>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="#productos">Productos</a>
-        <a href="https://wa.me/18096028222" target="_blank">WhatsApp</a>
-    </nav>
+<h1>🛍️ Tienda de Mamá</h1>
+
+<p>Productos de calidad al mejor precio</p>
+
+<nav>
+<a href="#">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#carrito">Carrito 🛒</a>
+<a href="https://wa.me/18096028222" target="_blank">WhatsApp</a>
+</nav>
+
 </header>
 
 
 <div class="buscador">
-    <input type="text" placeholder="🔎 Buscar productos...">
+<input type="text" placeholder="🔎 Buscar productos...">
 </div>
 
 
 <div class="categorias">
-    <button>Todos</button>
-    <button>Ropa</button>
-    <button>Accesorios</button>
-    <button>Ofertas</button>
+
+<button>Todos</button>
+<button>Ropa</button>
+<button>Accesorios</button>
+<button>Ofertas</button>
+
 </div>
 
 
@@ -39,47 +48,80 @@
 
 <div class="producto">
 
-    <h3>Producto 1</h3>
+<h3>Producto 1</h3>
 
-    <img src="Imagen-tienda.png" alt="Producto 1">
+<img src="Imagen-tienda.png">
 
-    <p class="precio">$10</p>
+<p>Producto de excelente calidad.</p>
 
-    <p>Producto de excelente calidad.</p>
+<p class="precio">$10</p>
 
-    <a href="https://wa.me/18096028222?text=Hola,%20quiero%20comprar%20el%20Producto%201" target="_blank">
-        <button>Comprar</button>
-    </a>
+<button onclick="agregarProducto('Producto 1',10)">
+Agregar al carrito 🛒
+</button>
 
 </div>
+
 
 
 <div class="producto">
 
-    <h3>Producto 2</h3>
+<h3>Producto 2</h3>
 
-    <img src="Imagen-tienda.png" alt="Producto 2">
+<img src="Imagen-tienda.png">
 
-    <p class="precio">$15</p>
+<p>Producto recomendado.</p>
 
-    <p>Producto recomendado para nuestros clientes.</p>
+<p class="precio">$15</p>
 
-    <a href="https://wa.me/18096028222?text=Hola,%20quiero%20comprar%20el%20Producto%202" target="_blank">
-        <button>Comprar</button>
-    </a>
+<button onclick="agregarProducto('Producto 2',15)">
+Agregar al carrito 🛒
+</button>
 
 </div>
 
 
+
+<section id="carrito">
+
+<h2>🛒 Tu carrito</h2>
+
+<div id="listaCarrito">
+
+<p>No hay productos todavía</p>
+
+</div>
+
+
+<h3>Total: $<span id="total">0</span></h3>
+
+
+<a id="whatsapp" target="_blank">
+
+<button>
+Finalizar compra por WhatsApp
+</button>
+
+</a>
+
+
+</section>
+
+
+
 <footer>
 
-    <h3>Tienda de Mamá</h3>
+<h3>Tienda de Mamá</h3>
 
-    <p>📱 WhatsApp: +1 (809) 602-8222</p>
+<p>📱 WhatsApp: +1 (809) 602-8222</p>
 
-    <p>© 2026 Todos los derechos reservados</p>
+<p>© 2026 Todos los derechos reservados</p>
 
 </footer>
+
+
+
+<script src="script.js"></script>
 
 
 </body>
