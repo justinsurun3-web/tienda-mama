@@ -1,99 +1,360 @@
-let carrito = [];
+*{
+    box-sizing:border-box;
+}
 
-let total = 0;
-
-
-function agregarProducto(nombre, precio){
-
-
-carrito.push({
-
-nombre:nombre,
-
-precio:precio
-
-});
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
 
 
-total += precio;
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#111,#333);
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
 
 
-mostrarCarrito();
+header h1{
+    font-size:42px;
+    margin:0 0 10px;
+}
 
+
+header p{
+    font-size:18px;
+}
+
+
+nav{
+    margin-top:25px;
+}
+
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+
+nav a:hover{
+    color:#25D366;
+}
+
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:50px 20px;
+    background:white;
+}
+
+
+.hero h2{
+    font-size:35px;
+}
+
+
+
+/* BUSCADOR */
+
+.buscador{
+    text-align:center;
+    margin:30px;
+}
+
+
+.buscador input{
+
+    width:80%;
+    max-width:500px;
+
+    padding:16px;
+
+    border-radius:30px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
 
 }
 
 
 
-function mostrarCarrito(){
+/* CATEGORIAS */
+
+.categorias{
+
+    text-align:center;
+
+    margin:30px;
+
+}
 
 
-let lista = document.getElementById("listaCarrito");
+.categorias button{
 
+    background:#111;
 
-lista.innerHTML="";
+    color:white;
 
+    border:none;
 
-carrito.forEach((producto,index)=>{
+    padding:12px 22px;
 
+    margin:5px;
 
-lista.innerHTML += `
+    border-radius:25px;
 
-<p>
-
-${producto.nombre} - $${producto.precio}
-
-<button onclick="eliminarProducto(${index})">
-
-❌
-
-</button>
-
-</p>
-
-`;
-
-});
-
-
-document.getElementById("total").innerHTML = total;
-
-
-
-let mensaje = "Hola, quiero comprar:%0A";
-
-
-carrito.forEach(producto=>{
-
-mensaje += producto.nombre + " $" + producto.precio + "%0A";
-
-});
-
-
-mensaje += "Total: $" + total;
-
-
-
-document.getElementById("whatsapp").href =
-
-"https://wa.me/18096028222?text=" + mensaje;
-
-
+    cursor:pointer;
 
 }
 
 
 
-function eliminarProducto(index){
+/* PRODUCTOS */
+
+#productos{
+
+    text-align:center;
+
+    font-size:35px;
+
+}
 
 
-total -= carrito[index].precio;
+.productos{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    padding:20px;
+
+}
 
 
-carrito.splice(index,1);
+
+.producto{
+
+    background:white;
+
+    width:300px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+
+    position:relative;
+
+    transition:.3s;
+
+}
 
 
-mostrarCarrito();
 
+.producto:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+
+}
+
+
+
+.producto img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+
+
+.producto h3{
+
+    font-size:25px;
+
+}
+
+
+
+.producto h2{
+
+    color:#0d6efd;
+
+}
+
+
+
+.producto p{
+
+    font-size:17px;
+
+}
+
+
+
+/* OFERTA */
+
+.oferta{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:red;
+
+    color:white;
+
+    padding:8px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+/* BOTONES */
+
+button{
+
+    background:#25D366;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 25px;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+button:hover{
+
+    background:#128C7E;
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* CARRITO */
+
+#carrito{
+
+    background:white;
+
+    margin:40px auto;
+
+    max-width:600px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+
+}
+
+
+
+#listaCarrito{
+
+    font-size:18px;
+
+}
+
+
+
+/* FOOTER */
+
+footer{
+
+    background:#111;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px;
+
+    margin-top:50px;
+
+}
+
+
+
+/* CELULAR */
+
+@media(max-width:700px){
+
+    header h1{
+
+        font-size:30px;
+
+    }
+
+
+    nav a{
+
+        display:block;
+
+        margin:12px;
+
+    }
+
+
+    .producto{
+
+        width:90%;
+
+    }
+
+
+    .hero h2{
+
+        font-size:28px;
+
+    }
 
 }
