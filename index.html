@@ -37,9 +37,7 @@ WhatsApp
 
 </nav>
 
-
 </header>
-
 
 
 
@@ -48,12 +46,10 @@ WhatsApp
 
 <h2>Bienvenido a nuestra tienda</h2>
 
-<p>
-Descubre productos seleccionados para ti
-</p>
+<p>Descubre productos seleccionados para ti</p>
 
 
-<button onclick="location.href='#productos'">
+<button onclick="irProductos()">
 Ver colección
 </button>
 
@@ -66,11 +62,7 @@ Ver colección
 
 <section class="categorias">
 
-
 <h2>Categorías</h2>
-
-
-<div>
 
 <button>🔥 Ofertas</button>
 
@@ -79,11 +71,7 @@ Ver colección
 <button>🛍️ Nuevos</button>
 
 
-</div>
-
-
 </section>
-
 
 
 
@@ -97,6 +85,7 @@ Ver colección
 
 <div class="productos" id="productosTienda">
 
+
 </div>
 
 
@@ -106,11 +95,10 @@ Ver colección
 
 
 
-
 <section id="carrito">
 
 
-<h2>🛒 Carrito</h2>
+<h2>🛒 Tu carrito</h2>
 
 
 <div id="listaCarrito">
@@ -118,6 +106,7 @@ Ver colección
 No hay productos todavía
 
 </div>
+
 
 
 <h3>
@@ -135,7 +124,6 @@ Comprar por WhatsApp
 </a>
 
 
-
 </section>
 
 
@@ -144,9 +132,7 @@ Comprar por WhatsApp
 
 <footer>
 
-
 <h3>✦ Tienda de Mamá ✦</h3>
-
 
 <p>
 📱 WhatsApp: +1 (809) 602-8222
@@ -164,6 +150,17 @@ Comprar por WhatsApp
 
 
 <script src="script.js"></script>
+
+
+<script>
+
+function irProductos(){
+
+document.getElementById("productos").scrollIntoView();
+
+}
+
+</script>
 
 
 </body>
