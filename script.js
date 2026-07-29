@@ -1,218 +1,141 @@
-<!DOCTYPE html>
-<html lang="es">
+let carrito = [];
 
-<head>
+let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tienda de Mamá</title>
+function cargarProductos(){
 
-<link rel="stylesheet" href="style.css">
+    let tienda = document.getElementById("productosTienda");
 
-</head>
+    if(!tienda){
+        return;
+    }
 
 
-<body>
+    tienda.innerHTML = "";
 
 
-<header>
+    productos.forEach((producto)=>{
 
-<h1>🛍️ Tienda de Mamá</h1>
+        tienda.innerHTML += `
 
-<p>Calidad, confianza y buenos precios</p>
+        <div class="producto">
 
+            <img src="${producto.imagen}">
 
-<nav>
+            <h3>${producto.nombre}</h3>
 
-<a href="index.html">Inicio</a>
+            <p>⭐⭐⭐⭐⭐</p>
 
-<a href="#productos">Productos</a>
+            <h2>$${producto.precio}</h2>
 
-<a href="#ofertas">Ofertas</a>
 
-<a href="#carrito">Carrito 🛒</a>
+            <button onclick="agregarProducto('${producto.nombre}',${producto.precio})">
 
-<a href="https://wa.me/18096028222" target="_blank">
-WhatsApp
-</a>
+            Agregar 🛒
 
-</nav>
+            </button>
 
-</header>
 
+        </div>
 
+        `;
 
 
-<section class="banner">
+    });
 
-<h2>🔥 Grandes ofertas de hoy</h2>
+}
 
-<p>Encuentra productos increíbles al mejor precio</p>
 
-<button onclick="window.location.href='#productos'">
-Ver productos
-</button>
 
-</section>
+function agregarProducto(nombre,precio){
 
+    let encontrado = carrito.find(p=>p.nombre===nombre);
 
 
+    if(encontrado){
 
+        encontrado.cantidad++;
 
-<section id="ofertas">
+    }else{
 
-<h2>⭐ Productos destacados</h2>
+        carrito.push({
 
+            nombre:nombre,
 
-<div class="productos">
+            precio:Number(precio),
 
+            cantidad:1
 
-<a href="producto1.html" class="link-producto">
+        });
 
-<div class="producto">
+    }
 
-<span class="oferta">OFERTA</span>
 
-<img src="Imagen-tienda.png">
+    mostrarCarrito();
 
-<h3>Producto 1</h3>
+}
 
-<p>⭐⭐⭐⭐⭐</p>
 
-<p>Producto de alta calidad.</p>
 
-<h2>$10</h2>
+function mostrarCarrito(){
 
+    let lista=document.getElementById("listaCarrito");
 
-<button onclick="agregarProducto('Producto 1',10); event.preventDefault();">
-Agregar 🛒
-</button>
+    let totalTexto=document.getElementById("total");
 
 
-</div>
+    if(!lista || !totalTexto){
+        return;
+    }
 
-</a>
 
+    lista.innerHTML="";
 
 
+    let total=0;
 
 
-<a href="producto2.html" class="link-producto">
+    carrito.forEach((producto,index)=>{
 
-<div class="producto">
 
+        total += producto.precio * producto.cantidad;
 
-<img src="Imagen-tienda.png">
 
-<h3>Producto 2</h3>
+        lista.innerHTML += `
 
-<p>⭐⭐⭐⭐⭐</p>
+        <div class="item-carrito">
 
-<p>Uno de nuestros favoritos.</p>
+        <b>${producto.nombre}</b>
 
-<h2>$15</h2>
+        <p>$${producto.precio} x ${producto.cantidad}</p>
 
+        <button onclick="eliminarProducto(${index})">
+        ❌
+        </button>
 
-<button onclick="agregarProducto('Producto 2',15); event.preventDefault();">
-Agregar 🛒
-</button>
+        </div>
 
+        `;
 
-</div>
+    });
 
-</a>
 
+    totalTexto.innerHTML=total;
 
 
+}
 
 
-<a href="producto3.html" class="link-producto">
 
-<div class="producto">
+function eliminarProducto(index){
 
+    carrito.splice(index,1);
 
-<img src="Imagen-tienda.png">
+    mostrarCarrito();
 
-<h3>Producto 3</h3>
+}
 
-<p>⭐⭐⭐⭐</p>
 
-<p>Nueva colección disponible.</p>
 
-<h2>$20</h2>
-
-
-<button onclick="agregarProducto('Producto 3',20); event.preventDefault();">
-Agregar 🛒
-</button>
-
-
-</div>
-
-</a>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<section id="carrito">
-
-
-<h2>🛒 Tu carrito</h2>
-
-
-<div id="listaCarrito">
-
-No hay productos todavía
-
-</div>
-
-
-<h3>
-Total: $<span id="total">0</span>
-</h3>
-
-
-
-<a id="whatsapp" target="_blank">
-
-<button>
-Finalizar compra por WhatsApp
-</button>
-
-</a>
-
-
-</section>
-
-
-
-
-
-<footer>
-
-<h3>🛍️ Tienda de Mamá</h3>
-
-<p>📱 WhatsApp: +1 (809) 602-8222</p>
-
-<p>© 2026 Todos los derechos reservados</p>
-
-</footer>
-
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
+cargarProductos();
