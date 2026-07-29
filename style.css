@@ -463,3 +463,138 @@ footer{
     gap:25px;
 
 }
+/* ESTILO LUJO */
+
+.admin-luxury{
+
+    background:#111;
+
+    color:white;
+
+}
+
+
+.luxury-header{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:#0b0b0b;
+
+    border-bottom:1px solid #b89b5e;
+
+}
+
+
+.luxury-header h1{
+
+    letter-spacing:8px;
+
+    font-size:38px;
+
+}
+
+
+.luxury-header p{
+
+    color:#b89b5e;
+
+    font-size:18px;
+
+}
+
+
+
+.luxury-header a{
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+
+
+.luxury-card{
+
+    background:#181818;
+
+    max-width:650px;
+
+    margin:50px auto;
+
+    padding:40px;
+
+    border-radius:5px;
+
+    text-align:center;
+
+    border:1px solid #b89b5e;
+
+}
+
+
+
+.luxury-card h2,
+.luxury-products h2{
+
+    letter-spacing:3px;
+
+}
+
+
+
+.luxury-card input{
+
+    width:90%;
+
+    padding:15px;
+
+    margin:12px;
+
+    background:#222;
+
+    border:1px solid #555;
+
+    color:white;
+
+}
+
+
+
+.luxury-card button{
+
+    background:#b89b5e;
+
+    color:white;
+
+    border-radius:0;
+
+    padding:15px 35px;
+
+}
+
+
+
+.luxury-products{
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+
+#productosAdmin{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
