@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Panel de Dueño - Tienda de Mamá</title>
+<title>Panel de Dueño | Tienda de Mamá</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -20,34 +20,62 @@
 
 <h1>⚙️ Panel de Dueño</h1>
 
-<p>Tienda de Mamá</p>
+<p>Administración de Tienda de Mamá</p>
+
+<nav>
+
+<a href="index.html">Ver tienda 🛍️</a>
+
+</nav>
 
 </header>
+
 
 
 
 <section class="admin-panel">
 
 
-<h2>Agregar Producto</h2>
+<h2>➕ Agregar nuevo producto</h2>
 
 
-<input id="nombre" placeholder="Nombre del producto">
+
+<input 
+id="nombre" 
+placeholder="Nombre del producto">
 
 
-<input id="precio" placeholder="Precio">
+
+<input 
+id="precio" 
+placeholder="Precio del producto">
 
 
-<input id="imagen" placeholder="Nombre de imagen">
+
+<input 
+id="imagen" 
+placeholder="Imagen (ej: producto.png)">
+
 
 
 <button onclick="crearProducto()">
-Agregar Producto
+
+Guardar Producto ✅
+
 </button>
 
 
 
-<h2>Productos creados</h2>
+</section>
+
+
+
+
+
+<section class="admin-productos">
+
+
+<h2>📦 Productos de la tienda</h2>
 
 
 <div id="productosAdmin">
@@ -55,8 +83,18 @@ Agregar Producto
 </div>
 
 
-
 </section>
+
+
+
+
+
+<footer>
+
+<p>🛍️ Tienda de Mamá - Panel Administrativo</p>
+
+</footer>
+
 
 
 
