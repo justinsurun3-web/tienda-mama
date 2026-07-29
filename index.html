@@ -2,34 +2,38 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tienda de Mamá</title>
+<title>DVC | Luxury Store</title>
 
 <link rel="stylesheet" href="style.css">
 
-</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
 
 <body>
 
-
 <header>
 
-<h1>✦ TIENDA DE MAMÁ ✦</h1>
-
-<p>Productos de calidad con confianza</p>
-
+<div class="logo">
+<h1>DVC</h1>
+<p>Luxury Redefined</p>
+</div>
 
 <nav>
 
 <a href="index.html">Inicio</a>
 
-<a href="#productos">Productos</a>
+<a href="#productos">Colección</a>
 
-<a href="#carrito">Carrito 🛒</a>
+<a href="#carrito">Carrito</a>
+
+<a href="#contacto">Contacto</a>
 
 <a href="https://wa.me/18096028222" target="_blank">
 WhatsApp
@@ -39,129 +43,128 @@ WhatsApp
 
 </header>
 
-
-
-
 <section class="banner">
 
-<h2>Bienvenido a nuestra tienda</h2>
+<div class="banner-text">
 
-<p>Descubre productos seleccionados para ti</p>
+<h2>Elegancia en cada detalle.</h2>
 
+<p>
+Descubre una colección exclusiva diseñada para quienes buscan estilo, calidad y confianza.
+</p>
 
 <button onclick="irProductos()">
-Ver colección
+Comprar ahora
 </button>
 
+</div>
 
 </section>
 
+<section class="beneficios">
 
+<div>
+<h3>🚚 Envíos rápidos</h3>
+<p>Entrega segura en todo EE. UU.</p>
+</div>
 
+<div>
+<h3>🔒 Compra segura</h3>
+<p>Protección en cada pedido.</p>
+</div>
 
+<div>
+<h3>⭐ Calidad Premium</h3>
+<p>Productos cuidadosamente seleccionados.</p>
+</div>
+
+</section>
 
 <section class="categorias">
 
-<h2>Categorías</h2>
+<h2>Colecciones</h2>
 
 <button>🔥 Ofertas</button>
 
-<button>⭐ Destacados</button>
+<button>⭐ Más vendidos</button>
 
-<button>🛍️ Nuevos</button>
+<button>✨ Nuevos</button>
 
+<button>👑 Premium</button>
 
 </section>
-
-
-
-
 
 <section id="productos">
 
-
-<h2>Nuestra colección</h2>
-
+<h2>Nuestra Colección</h2>
 
 <div class="productos" id="productosTienda">
 
-
 </div>
-
 
 </section>
 
-
-
-
-
 <section id="carrito">
-
 
 <h2>🛒 Tu carrito</h2>
 
-
 <div id="listaCarrito">
-
-No hay productos todavía
-
+No hay productos todavía.
 </div>
-
-
 
 <h3>
 Total: $<span id="total">0</span>
 </h3>
 
-
-
 <a id="whatsapp" target="_blank">
-
 <button>
-Comprar por WhatsApp
+Finalizar compra por WhatsApp
 </button>
-
 </a>
-
 
 </section>
 
+<section id="contacto">
 
+<h2>Contáctanos</h2>
 
+<p>¿Necesitas ayuda? Estamos disponibles para responder tus preguntas.</p>
 
+<a href="https://wa.me/18096028222" target="_blank">
+<button>Escribir por WhatsApp</button>
+</a>
+
+</section>
 
 <footer>
 
-<h3>✦ Tienda de Mamá ✦</h3>
+<h2>DVC</h2>
+
+<p>Luxury Redefined</p>
 
 <p>
 📱 WhatsApp: +1 (809) 602-8222
 </p>
 
-
 <p>
-© 2026 Todos los derechos reservados
+© 2026 DVC. Todos los derechos reservados.
 </p>
-
 
 </footer>
 
-
-
-
 <script src="script.js"></script>
-
 
 <script>
 
 function irProductos(){
 
-document.getElementById("productos").scrollIntoView();
+document.getElementById("productos").scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
 </script>
-
 
 </body>
 
