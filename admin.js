@@ -4,9 +4,7 @@ let productos = JSON.parse(localStorage.getItem("productos")) || [];
 function crearProducto(){
 
     let nombre = document.getElementById("nombre").value;
-
     let precio = document.getElementById("precio").value;
-
     let imagen = document.getElementById("imagen").value;
 
 
@@ -19,27 +17,25 @@ function crearProducto(){
     }
 
 
-    let nuevoProducto = {
+    productos.push({
 
-        nombre: nombre,
+        nombre:nombre,
 
-        precio: precio,
+        precio:Number(precio),
 
-        imagen: imagen
+        imagen:imagen
 
-    };
-
-
-    productos.push(nuevoProducto);
+    });
 
 
-    localStorage.setItem("productos", JSON.stringify(productos));
-
+    guardarProductos();
 
     mostrarProductos();
 
 
-    alert("Producto guardado ✅");
+    document.getElementById("nombre").value="";
+    document.getElementById("precio").value="";
+    document.getElementById("imagen").value="";
 
 
 }
@@ -48,29 +44,43 @@ function crearProducto(){
 
 function mostrarProductos(){
 
-    let contenedor = document.getElementById("productosAdmin");
+    let lista = document.getElementById("productosAdmin");
 
 
-    if(!contenedor){
+    if(!lista){
         return;
     }
 
 
-    contenedor.innerHTML = "";
+    lista.innerHTML="";
 
 
-    productos.forEach(producto=>{
+    productos.forEach((producto,index)=>{
 
 
-        contenedor.innerHTML += `
+        lista.innerHTML += `
 
         <div class="producto">
 
-            <img src="${producto.imagen}">
 
-            <h3>${producto.nombre}</h3>
+        <img src="${producto.imagen}">
 
-            <h2>$${producto.precio}</h2>
+
+        <h3>${producto.nombre}</h3>
+
+
+        <h2>$${producto.precio}</h2>
+
+
+        <button onclick="editarProducto(${index})">
+        Editar ✏️
+        </button>
+
+
+        <button onclick="eliminarProducto(${index})">
+        Borrar 🗑️
+        </button>
+
 
         </div>
 
@@ -79,6 +89,64 @@ function mostrarProductos(){
 
     });
 
+
+}
+
+
+
+
+function editarProducto(index){
+
+    let nuevoNombre = prompt(
+        "Nuevo nombre:",
+        productos[index].nombre
+    );
+
+
+    let nuevoPrecio = prompt(
+        "Nuevo precio:",
+        productos[index].precio
+    );
+
+
+    if(nuevoNombre && nuevoPrecio){
+
+        productos[index].nombre = nuevoNombre;
+
+        productos[index].precio = Number(nuevoPrecio);
+
+
+        guardarProductos();
+
+        mostrarProductos();
+
+    }
+
+}
+
+
+
+
+function eliminarProducto(index){
+
+    productos.splice(index,1);
+
+
+    guardarProductos();
+
+    mostrarProductos();
+
+}
+
+
+
+
+function guardarProductos(){
+
+    localStorage.setItem(
+        "productos",
+        JSON.stringify(productos)
+    );
 
 }
 
