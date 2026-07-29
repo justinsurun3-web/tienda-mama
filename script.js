@@ -1,33 +1,29 @@
 let carrito = [];
 
 
-let productosBase = [
+let productos = [
     {
-        nombre:"Producto 1",
-        precio:10,
-        imagen:"Imagen-tienda.png"
+        nombre: "Producto 1",
+        precio: 10,
+        imagen: "Imagen-tienda.png"
     },
 
     {
-        nombre:"Producto 2",
-        precio:15,
-        imagen:"Imagen-tienda.png"
+        nombre: "Producto 2",
+        precio: 15,
+        imagen: "Imagen-tienda.png"
     },
 
     {
-        nombre:"Producto 3",
-        precio:20,
-        imagen:"Imagen-tienda.png"
+        nombre: "Producto 3",
+        precio: 20,
+        imagen: "Imagen-tienda.png"
     }
 ];
 
 
-let productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
 
-
-let productos = productosBase.concat(productosGuardados);
-
-
+// CARGAR PRODUCTOS EN LA TIENDA
 
 function cargarProductos(){
 
@@ -39,33 +35,30 @@ function cargarProductos(){
     }
 
 
-    tienda.innerHTML="";
+    tienda.innerHTML = "";
 
 
-    productos.forEach((producto,index)=>{
+    productos.forEach((producto)=>{
 
 
         tienda.innerHTML += `
 
         <div class="producto">
 
-        <img src="${producto.imagen}">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+
+            <h3>${producto.nombre}</h3>
+
+            <p>⭐⭐⭐⭐⭐</p>
+
+            <h2>$${producto.precio}</h2>
 
 
-        <h3>${producto.nombre}</h3>
+            <button onclick="agregarProducto('${producto.nombre}', ${producto.precio})">
 
+            Agregar 🛒
 
-        <p>⭐⭐⭐⭐⭐</p>
-
-
-        <h2>$${producto.precio}</h2>
-
-
-        <button onclick="agregarProducto('${producto.nombre}',${producto.precio})">
-
-        Agregar 🛒
-
-        </button>
+            </button>
 
 
         </div>
@@ -81,33 +74,22 @@ function cargarProductos(){
 
 
 
-function agregarProducto(nombre,precio){
+// CARRITO
 
-    let encontrado = carrito.find(
-        producto=>producto.nombre===nombre
-    );
+function agregarProducto(nombre, precio){
 
 
-    if(encontrado){
+    carrito.push({
 
-        encontrado.cantidad++;
+        nombre:nombre,
 
-    }else{
+        precio:precio
 
-        carrito.push({
-
-            nombre:nombre,
-
-            precio:precio,
-
-            cantidad:1
-
-        });
-
-    }
+    });
 
 
     mostrarCarrito();
+
 
 }
 
@@ -116,35 +98,36 @@ function agregarProducto(nombre,precio){
 
 function mostrarCarrito(){
 
-    let lista=document.getElementById("listaCarrito");
 
-    let total=document.getElementById("total");
+    let lista = document.getElementById("listaCarrito");
+
+    let total = document.getElementById("total");
 
 
     if(!lista || !total){
+
         return;
+
     }
 
 
-    lista.innerHTML="";
+    lista.innerHTML = "";
 
 
-    let suma=0;
+    let suma = 0;
 
 
-    carrito.forEach(producto=>{
+    carrito.forEach((producto)=>{
 
 
-        suma += producto.precio * producto.cantidad;
+        suma += producto.precio;
 
 
         lista.innerHTML += `
 
         <div class="item-carrito">
 
-        ${producto.nombre}
-
-        x${producto.cantidad}
+        ${producto.nombre} - $${producto.precio}
 
         </div>
 
@@ -154,10 +137,11 @@ function mostrarCarrito(){
     });
 
 
-    total.innerHTML=suma;
+    total.innerHTML = suma;
 
 
 }
+
 
 
 
