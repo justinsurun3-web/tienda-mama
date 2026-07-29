@@ -1,23 +1,23 @@
 let carrito = [];
 
+let total = 0;
+
 
 function agregarProducto(nombre, precio){
 
-    let productoEncontrado = carrito.find(producto => producto.nombre === nombre);
+    let producto = carrito.find(p => p.nombre === nombre);
 
 
-    if(productoEncontrado){
+    if(producto){
 
-        productoEncontrado.cantidad++;
+        producto.cantidad++;
 
     } else {
 
         carrito.push({
-
-            nombre: nombre,
-            precio: precio,
-            cantidad: 1
-
+            nombre:nombre,
+            precio:precio,
+            cantidad:1
         });
 
     }
@@ -33,21 +33,14 @@ function mostrarCarrito(){
 
     let lista = document.getElementById("listaCarrito");
 
-    let totalTexto = document.getElementById("total");
+
+    if(!lista) return;
 
 
-    lista.innerHTML = "";
+    lista.innerHTML="";
 
 
-    let total = 0;
-
-
-    if(carrito.length === 0){
-
-        lista.innerHTML = "No hay productos todavía 🛒";
-
-    }
-
+    total = 0;
 
 
     carrito.forEach((producto,index)=>{
@@ -56,14 +49,13 @@ function mostrarCarrito(){
         total += producto.precio * producto.cantidad;
 
 
-
         lista.innerHTML += `
 
         <div class="item-carrito">
 
+        <b>${producto.nombre}</b>
+
         <p>
-        <strong>${producto.nombre}</strong>
-        <br>
         $${producto.precio} x ${producto.cantidad}
         </p>
 
@@ -92,44 +84,19 @@ function mostrarCarrito(){
 
 
 
-    totalTexto.innerHTML = total;
-
-
-
-    let mensaje = "Hola, quiero hacer este pedido:%0A%0A";
-
-
-    carrito.forEach(producto=>{
-
-        mensaje += producto.nombre + 
-        " x" + producto.cantidad +
-        " = $" + 
-        (producto.precio * producto.cantidad) +
-        "%0A";
-
-    });
-
-
-
-    mensaje += "%0ATotal: $" + total;
-
-
-
-    document.getElementById("whatsapp").href =
-
-    "https://wa.me/18096028222?text=" + mensaje;
+    document.getElementById("total").innerHTML = total;
 
 
 }
 
 
 
-function cambiarCantidad(index, cambio){
+function cambiarCantidad(index,cambio){
 
     carrito[index].cantidad += cambio;
 
 
-    if(carrito[index].cantidad <= 0){
+    if(carrito[index].cantidad <=0){
 
         carrito.splice(index,1);
 
@@ -147,5 +114,14 @@ function eliminarProducto(index){
     carrito.splice(index,1);
 
     mostrarCarrito();
+
+}
+
+
+
+
+function cambiarImagen(imagen){
+
+    document.querySelector(".imagen-grande").src = imagen;
 
 }
