@@ -29,8 +29,6 @@
 
 <a href="#productos">Productos</a>
 
-<a href="#ofertas">Ofertas</a>
-
 <a href="#carrito">Carrito 🛒</a>
 
 <a href="https://wa.me/18096028222" target="_blank">
@@ -50,9 +48,11 @@ WhatsApp
 
 <p>Encuentra productos increíbles al mejor precio</p>
 
-<button onclick="window.location.href='#productos'">
+
+<button onclick="location.href='#productos'">
 Ver productos
 </button>
+
 
 </section>
 
@@ -62,96 +62,11 @@ Ver productos
 
 <section id="ofertas">
 
+
 <h2>⭐ Productos destacados</h2>
 
 
-<div class="productos">
-
-
-<a href="producto1.html" class="link-producto">
-
-<div class="producto">
-
-<span class="oferta">OFERTA</span>
-
-<img src="Imagen-tienda.png">
-
-<h3>Producto 1</h3>
-
-<p>⭐⭐⭐⭐⭐</p>
-
-<p>Producto de alta calidad.</p>
-
-<h2>$10</h2>
-
-
-<button onclick="agregarProducto('Producto 1',10); event.preventDefault();">
-Agregar 🛒
-</button>
-
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="producto2.html" class="link-producto">
-
-<div class="producto">
-
-
-<img src="Imagen-tienda.png">
-
-<h3>Producto 2</h3>
-
-<p>⭐⭐⭐⭐⭐</p>
-
-<p>Uno de nuestros favoritos.</p>
-
-<h2>$15</h2>
-
-
-<button onclick="agregarProducto('Producto 2',15); event.preventDefault();">
-Agregar 🛒
-</button>
-
-
-</div>
-
-</a>
-
-
-
-
-
-<a href="producto3.html" class="link-producto">
-
-<div class="producto">
-
-
-<img src="Imagen-tienda.png">
-
-<h3>Producto 3</h3>
-
-<p>⭐⭐⭐⭐</p>
-
-<p>Nueva colección disponible.</p>
-
-<h2>$20</h2>
-
-
-<button onclick="agregarProducto('Producto 3',20); event.preventDefault();">
-Agregar 🛒
-</button>
-
-
-</div>
-
-</a>
-
+<div class="productos" id="productosTienda">
 
 
 </div>
@@ -176,9 +91,11 @@ No hay productos todavía
 </div>
 
 
+
 <h3>
 Total: $<span id="total">0</span>
 </h3>
+
 
 
 
@@ -204,6 +121,7 @@ Finalizar compra por WhatsApp
 <p>📱 WhatsApp: +1 (809) 602-8222</p>
 
 <p>© 2026 Todos los derechos reservados</p>
+
 
 </footer>
 
