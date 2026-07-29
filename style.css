@@ -386,3 +386,80 @@ footer{
     gap:20px;
 
 }
+/* PANEL ADMIN */
+
+.admin-panel{
+
+    background:white;
+
+    max-width:700px;
+
+    margin:40px auto;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+
+
+.admin-panel h2{
+
+    font-size:30px;
+
+}
+
+
+
+.admin-panel input{
+
+    width:90%;
+
+    padding:16px;
+
+    margin:10px;
+
+    border-radius:15px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
+
+}
+
+
+
+.admin-panel button{
+
+    margin-top:15px;
+
+}
+
+
+
+.admin-productos{
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+
+
+#productosAdmin{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
