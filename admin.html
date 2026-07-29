@@ -1,116 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panel de Administración | Tienda de Mamá</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script>
 const contraseña = "Tienda2026";
 
 const acceso = prompt("Introduce la contraseña del administrador:");
 
 if (acceso !== contraseña) {
-    alert("Acceso denegado");
+    alert("Acceso denegado.");
     window.location.href = "index.html";
-}<!DOCTYPE html>
-<html lang="es">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Panel Admin - Tienda de Mamá</title>
-
-<link rel="stylesheet" href="style.css">
+}
+</script>
 
 </head>
 
-
 <body class="admin-luxury">
-
 
 <header class="luxury-header">
 
 <h1>✦ TIENDA DE MAMÁ ✦</h1>
 
-<p>Panel de administración</p>
-
+<p>Panel de Administración</p>
 
 <nav>
 
-<a href="index.html">
-🛍️ Ver tienda
-</a>
+<a href="index.html">🛍️ Volver a la tienda</a>
 
 </nav>
 
 </header>
 
-
-
-
 <section class="luxury-card">
 
+<h2>➕ Agregar producto</h2>
 
-<h2>➕ Agregar Producto</h2>
+<input id="nombre" type="text" placeholder="Nombre del producto">
 
+<input id="precio" type="number" placeholder="Precio">
 
-<input 
-id="nombre" 
-type="text"
-placeholder="Nombre del producto">
-
-
-
-<input 
-id="precio" 
-type="number"
-placeholder="Precio del producto">
-
-
-
-<input 
-id="imagen" 
-type="text"
-placeholder="Nombre de imagen (ej: producto.png)">
-
-
+<input id="imagen" type="text" placeholder="Nombre de la imagen (ej: producto.png)">
 
 <button onclick="crearProducto()">
-
-Guardar Producto
-
+Guardar producto
 </button>
-
 
 </section>
 
-
-
-
-
 <section class="luxury-products">
 
-
 <h2>📦 Productos</h2>
-
 
 <div id="productosAdmin">
 
 </div>
 
-
 </section>
-
-
-
-
 
 <footer>
 
-<p>© 2026 Tienda de Mamá</p>
+<p>© 2026 Tienda de Mamá - Panel Administrativo</p>
 
 </footer>
 
-
-
-
 <script src="admin.js"></script>
-
 
 </body>
 
