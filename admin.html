@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Luxury Admin | Tienda de Mamá</title>
+<title>Panel Admin - Tienda de Mamá</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -20,17 +20,16 @@
 
 <h1>✦ TIENDA DE MAMÁ ✦</h1>
 
-<p>Panel exclusivo de administración</p>
+<p>Panel de administración</p>
 
 
 <nav>
 
 <a href="index.html">
-Volver a tienda
+🛍️ Ver tienda
 </a>
 
 </nav>
-
 
 </header>
 
@@ -40,21 +39,33 @@ Volver a tienda
 <section class="luxury-card">
 
 
-<h2>Crear producto</h2>
+<h2>➕ Agregar Producto</h2>
 
 
-<input id="nombre" placeholder="Nombre del producto">
+<input 
+id="nombre" 
+type="text"
+placeholder="Nombre del producto">
 
 
-<input id="precio" placeholder="Precio">
+
+<input 
+id="precio" 
+type="number"
+placeholder="Precio del producto">
 
 
-<input id="imagen" placeholder="Imagen">
+
+<input 
+id="imagen" 
+type="text"
+placeholder="Nombre de imagen (ej: producto.png)">
+
 
 
 <button onclick="crearProducto()">
 
-Añadir producto
+Guardar Producto
 
 </button>
 
@@ -68,7 +79,7 @@ Añadir producto
 <section class="luxury-products">
 
 
-<h2>Catálogo</h2>
+<h2>📦 Productos</h2>
 
 
 <div id="productosAdmin">
@@ -87,6 +98,7 @@ Añadir producto
 <p>© 2026 Tienda de Mamá</p>
 
 </footer>
+
 
 
 
