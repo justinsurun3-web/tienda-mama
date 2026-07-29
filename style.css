@@ -360,3 +360,41 @@ footer{
     text-decoration:none;
     color:inherit;
 }
+.producto-detalle{
+    background:white;
+    max-width:700px;
+    margin:40px auto;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+
+.imagen-grande{
+    width:80%;
+    max-width:500px;
+    border-radius:20px;
+}
+
+
+.galeria{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:20px;
+}
+
+
+.galeria img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+
+.galeria img:hover{
+    transform:scale(1.1);
+}
