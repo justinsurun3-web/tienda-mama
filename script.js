@@ -1,40 +1,71 @@
 let carrito = [];
 
-let productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+let productosBase = [
+    {
+        nombre:"Producto 1",
+        precio:10,
+        imagen:"Imagen-tienda.png"
+    },
+
+    {
+        nombre:"Producto 2",
+        precio:15,
+        imagen:"Imagen-tienda.png"
+    },
+
+    {
+        nombre:"Producto 3",
+        precio:20,
+        imagen:"Imagen-tienda.png"
+    }
+];
+
+
+let productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
+
+
+let productos = productosBase.concat(productosGuardados);
+
 
 
 function cargarProductos(){
 
     let tienda = document.getElementById("productosTienda");
 
+
     if(!tienda){
         return;
     }
 
 
-    tienda.innerHTML = "";
+    tienda.innerHTML="";
 
 
-    productos.forEach((producto)=>{
+    productos.forEach((producto,index)=>{
+
 
         tienda.innerHTML += `
 
         <div class="producto">
 
-            <img src="${producto.imagen}">
-
-            <h3>${producto.nombre}</h3>
-
-            <p>⭐⭐⭐⭐⭐</p>
-
-            <h2>$${producto.precio}</h2>
+        <img src="${producto.imagen}">
 
 
-            <button onclick="agregarProducto('${producto.nombre}',${producto.precio})">
+        <h3>${producto.nombre}</h3>
 
-            Agregar 🛒
 
-            </button>
+        <p>⭐⭐⭐⭐⭐</p>
+
+
+        <h2>$${producto.precio}</h2>
+
+
+        <button onclick="agregarProducto('${producto.nombre}',${producto.precio})">
+
+        Agregar 🛒
+
+        </button>
 
 
         </div>
@@ -44,13 +75,17 @@ function cargarProductos(){
 
     });
 
+
 }
+
 
 
 
 function agregarProducto(nombre,precio){
 
-    let encontrado = carrito.find(p=>p.nombre===nombre);
+    let encontrado = carrito.find(
+        producto=>producto.nombre===nombre
+    );
 
 
     if(encontrado){
@@ -63,7 +98,7 @@ function agregarProducto(nombre,precio){
 
             nombre:nombre,
 
-            precio:Number(precio),
+            precio:precio,
 
             cantidad:1
 
@@ -78,14 +113,15 @@ function agregarProducto(nombre,precio){
 
 
 
+
 function mostrarCarrito(){
 
     let lista=document.getElementById("listaCarrito");
 
-    let totalTexto=document.getElementById("total");
+    let total=document.getElementById("total");
 
 
-    if(!lista || !totalTexto){
+    if(!lista || !total){
         return;
     }
 
@@ -93,48 +129,36 @@ function mostrarCarrito(){
     lista.innerHTML="";
 
 
-    let total=0;
+    let suma=0;
 
 
-    carrito.forEach((producto,index)=>{
+    carrito.forEach(producto=>{
 
 
-        total += producto.precio * producto.cantidad;
+        suma += producto.precio * producto.cantidad;
 
 
         lista.innerHTML += `
 
         <div class="item-carrito">
 
-        <b>${producto.nombre}</b>
+        ${producto.nombre}
 
-        <p>$${producto.precio} x ${producto.cantidad}</p>
-
-        <button onclick="eliminarProducto(${index})">
-        ❌
-        </button>
+        x${producto.cantidad}
 
         </div>
 
         `;
 
+
     });
 
 
-    totalTexto.innerHTML=total;
+    total.innerHTML=suma;
 
 
 }
 
-
-
-function eliminarProducto(index){
-
-    carrito.splice(index,1);
-
-    mostrarCarrito();
-
-}
 
 
 
